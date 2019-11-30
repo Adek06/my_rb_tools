@@ -76,15 +76,21 @@
 </body>
 <script type="text/javascript">
 
+  var timer;
 	$('#function_name').on('input propertychange', function() {
-         test();
-    });
+      clearTimeout(timer)
+      timer = setTimeout(function(){return test()},500)
+  });
+
 	$('#must_vars').on('input propertychange', function() {
-         test();
-    });
+      clearTimeout(timer)
+      timer = setTimeout(function(){return test()},500)
+  });
+  
 	$('#maybe_vars').on('input propertychange', function() {
-         test();
-    });
+        clearTimeout(timer)
+      timer = setTimeout(function(){return test()},500)
+  });
 
     function test(){
     	must_vars = $("#must_vars").val().split(',')
@@ -100,19 +106,19 @@
             }
         })
 
-		$.ajax({
-            type: 'POST',
-            contentType: "application/json",
-            async:false,
-            url: "/g_code/f",
-            data: JSON.stringify({'function_name':$("#function_name").val(),"mode":"Filter","must_vars":must_vars, "maybe_vars":$("#maybe_vars").val().split(',')}),
+        $.ajax({
+              type: 'POST',
+              contentType: "application/json",
+              async:false,
+              url: "/g_code/f",
+              data: JSON.stringify({'function_name':$("#function_name").val(),"mode":"Filter","must_vars":must_vars, "maybe_vars":$("#maybe_vars").val().split(',')}),
 
-            success:function(res){
-                $('#FilterText').val(res)
-            }
+              success:function(res){
+                  $('#FilterText').val(res)
+              }
         })
 
-		$.ajax({
+        $.ajax({
             type: 'POST',
             contentType: "application/json",
             async:false,
