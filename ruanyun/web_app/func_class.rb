@@ -21,7 +21,7 @@ class Func_Class
         code_str += "        Common::setMsgAndCode('没有任何修改', ErrorCode::BadParam);\n"
         code_str += "    }\n"
 
-        code_str += "    self::$param['#{id_var.v_name}'] = $#{temp_name}['#{id_var.v_name}'];"
+        code_str += "    self::$param['#{id_var.v_name}'] = $#{temp_name}['#{id_var.v_name}'];\n"
 
         code_str += "    return ;\n\n"
 
