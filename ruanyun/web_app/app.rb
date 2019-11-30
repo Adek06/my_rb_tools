@@ -1,5 +1,8 @@
 require 'sinatra'
 
+set :bind, '0.0.0.0'
+set :port, 9999
+
 get '/' do
   '游先生的个人工具箱'
 end
