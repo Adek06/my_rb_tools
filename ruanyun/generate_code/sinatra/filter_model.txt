@@ -1,8 +1,0 @@
-<?php
-/**
- * 
- */
-class #{name}Filter extends Filter_#{name}Model
-{
-
-}
