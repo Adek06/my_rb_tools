@@ -47,6 +47,8 @@ class Func_Class
             else 
                 code_str += "    if (isset(self::$ajax['#{i.v_name}'])) {\n"
                 code_str += "        self::$param['#{i.v_name}'] = self::#{i.v_name}Valid();\n"
+                code_str += "    } else {\n"
+                code_str += "        self::$param['#{i.v_name}'] = ;\n"
                 code_str += "    }\n"
             end
         end
