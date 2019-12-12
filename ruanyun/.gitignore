@@ -8,4 +8,5 @@ filter_parent.txt
 .DS_Store
 *冲突副本*
 *sync-conflict*
+*.env
 
