@@ -18,8 +18,8 @@ class #{file_name}Controller extends
 
         $data = Filter::$param;
         $#{file_name}M  = new #{file_name}Model();
-        $xxid = $#{file_name}M->add($data);
-        if (!$xxid) {
+        $res = $#{file_name}M->add($data);
+        if (!$res) {
             Response::getInstance()->setError(ErrorCode::FailedCode);
         }
 
@@ -35,8 +35,8 @@ class #{file_name}Controller extends
         $filter['xxid'] = Filter::$param['xxid'];
 
         $#{file_name}M  = new #{file_name}Model();
-        $xxid = $#{file_name}M->del($filter);
-        if (!$xxid) {
+        $res = $#{file_name}M->del($filter);
+        if (!$res) {
             Response::getInstance()->setError(ErrorCode::FailedCode);
         }
 

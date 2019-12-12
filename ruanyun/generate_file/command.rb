@@ -15,17 +15,20 @@ option_parser = OptionParser.new do |opts|
     options[:code] = true
     end
 
-    # Option 作为 flag，带一组用逗号分割的arguments，用于将arguments作为数组解析
-    opts.on('', '--must str', 'string of arguments: name type. e: "title str, content str, num int"') do |value|
-    options[:must_var] = value
+    options[:file] = false
+    opts.on('-f', '--file', 'generate file') do
+    # 这个部分就是使用这个Option后执行的代码
+    options[:file] = true
     end
 
-    opts.on('', '--maybe str', 'string of arguments: name type. e: "title str, content str, num int"') do |value|
-    options[:maybe_var] = value
+    # Option 作为 flag，带argument，用于将argument作为数值解析，比如"name"信息
+    #下面的“value”就是用户使用时输入的argument
+    opts.on('-n NAME', '--name Name', 'if use -f, Pass-in file name') do |value|
+    options[:name] = value
     end
 end.parse!
 
-if options[:code]
-    require_relative "gener_code_c.rb"
-
+if options[:file]
+    require_relative "gener_file.rb"
+    main(options[:name])
 end
