@@ -46,7 +46,7 @@ class Var_str < Var_Class
 	def func_code
 		code_str =  "protected static function #{@v_name}Valid()\n{\n"
 		code_str += "    $#{@v_name} = self::stringValid(self::$ajax['#{@v_name}'], , );\n"
-		code_str += "    if (!$#{@v_name}) {\n"
+		code_str += "    if (!$#{@v_name}&&$#{@v_name}!="") {\n"
 		code_str += "        Common::setMsgAndCode('#{@v_name} 参数值非法', ErrorCode::InvalidParam);\n"
 		code_str += "    }\n\n"
 		code_str += "    return $#{@v_name};\n"
